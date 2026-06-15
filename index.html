@@ -85,10 +85,9 @@
     margin: 0;
     max-width: 16ch;
   }
-  .masthead h1 em {
-    font-style: italic;
-    color: #FBE3E2;
-  }
+  /* ---------- Top logo bar ---------- */
+  .topbar { background: var(--paper); padding: 20px 0; }
+  .site-logo { height: 38px; width: auto; display: block; }
 
   /* ---------- Event meta bar ---------- */
   .meta {
@@ -211,21 +210,8 @@
   }
   .contact a { display: block; font-weight: 500; }
 
-  /* Logo slot — replace the placeholder box with your <img> (see comment below) */
-  .logo-slot {
-    min-width: 180px;
-    min-height: 70px;
-    border: 1px dashed var(--line);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #B9ADA8;
-    font-size: 13px;
-    text-align: center;
-    padding: 12px;
-  }
-  .logo-slot img { max-height: 70px; max-width: 220px; height: auto; width: auto; }
+  /* Footer logo */
+  .logo-foot img { height: 26px; width: auto; display: block; opacity: 0.9; }
 
   /* ---------- Motion ---------- */
   @keyframes rise {
@@ -254,11 +240,18 @@
 </head>
 <body>
 
+  <!-- ===================== TOP LOGO BAR ===================== -->
+  <div class="topbar">
+    <div class="wrap">
+      <img class="site-logo" src="logo.png" alt="Radboud University">
+    </div>
+  </div>
+
   <!-- ===================== HERO ===================== -->
   <header class="masthead">
     <div class="wrap">
       <p class="kicker">Roozenbeek Colloquium</p>
-      <h1>How does trust in institutions erode, <em>and what can be done?</em></h1>
+      <h1>How does trust in institutions erode, and what can be done?</h1>
     </div>
   </header>
 
@@ -335,13 +328,10 @@
         <a href="mailto:Hugo.snijders@ru.nl">Hugo.snijders@ru.nl</a>
       </div>
 
-      <!--
-        UNIVERSITY LOGO:
-        Drop your logo file into the repo (e.g. "logo.png") and replace the
-        placeholder <div> below with:
-            <img src="logo.png" alt="Radboud University">
-      -->
-      <img src="logo.png" alt="Radboud University">
+      <!-- University logo (also shown in the top bar) -->
+      <div class="logo-foot">
+        <img src="logo.png" alt="Radboud University">
+      </div>
     </div>
   </footer>
 
