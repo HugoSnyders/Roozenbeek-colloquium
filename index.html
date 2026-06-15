@@ -61,33 +61,47 @@
     display: inline-block;
   }
 
-  /* ---------- Masthead / hero ---------- */
-  .masthead {
-    background: var(--red);
-    color: #fff;
-    padding: 64px 0 56px;
-    border-bottom: 6px solid var(--red-dark);
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--paper);
+    padding: 54px 0 46px;
+    border-bottom: 2px solid var(--red);
   }
-  .masthead .kicker {
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+  .hero-text { flex: 1 1 auto; }
+  .kicker {
     font-size: 13px;
     font-weight: 600;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.82);
-    margin: 0 0 22px;
+    color: var(--red);
+    margin: 0 0 18px;
   }
-  .masthead h1 {
+  .hero h1 {
     font-family: "Newsreader", Georgia, serif;
     font-weight: 500;
-    font-size: clamp(2.1rem, 6vw, 3.4rem);
-    line-height: 1.12;
+    font-size: clamp(2rem, 5vw, 3.05rem);
+    line-height: 1.14;
     letter-spacing: -0.01em;
+    color: var(--ink);
     margin: 0;
-    max-width: 16ch;
+    max-width: 18ch;
   }
-  /* ---------- Top logo bar ---------- */
-  .topbar { background: var(--paper); padding: 26px 0; }
-  .site-logo { width: clamp(320px, 50vw, 560px); max-width: 100%; height: auto; display: block; }
+  .site-logo {
+    flex: 0 0 auto;
+    width: clamp(170px, 21vw, 230px);
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 680px) {
+    .hero-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+    .site-logo { width: clamp(220px, 58vw, 280px); order: -1; }
+  }
 
   /* ---------- Event meta bar ---------- */
   .meta {
@@ -218,9 +232,8 @@
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .masthead .wrap > * { animation: rise 0.6s ease both; }
-  .masthead .kicker { animation-delay: 0.02s; }
-  .masthead h1 { animation-delay: 0.1s; }
+  .hero-inner > * { animation: rise 0.6s ease both; }
+  .hero h1 { animation-delay: 0.06s; }
 
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; }
@@ -240,18 +253,14 @@
 </head>
 <body>
 
-  <!-- ===================== TOP LOGO BAR ===================== -->
-  <div class="topbar">
-    <div class="wrap">
-      <img class="site-logo" src="logo.png" alt="Radboud University">
-    </div>
-  </div>
-
   <!-- ===================== HERO ===================== -->
-  <header class="masthead">
-    <div class="wrap">
-      <p class="kicker">Roozenbeek Colloquium</p>
-      <h1>How does trust in institutions erode, and what can be done?</h1>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="kicker">Roozenbeek Colloquium</p>
+        <h1>How does trust in institutions erode, and what can be done?</h1>
+      </div>
+      <img class="site-logo" src="logo.png" alt="Radboud University">
     </div>
   </header>
 
@@ -264,7 +273,7 @@
       </div>
       <div class="meta-item">
         <p class="label">Where</p>
-        <p class="value">MM 01.620<small>Colloquium room, MM</small></p>
+        <p class="value">MM 01.620<small>Colloquium room</small></p>
       </div>
       <div class="meta-cta">
         <a class="btn" href="https://hugosnijders.limesurvey.net/184119?lang=en&newtest=Y" target="_blank" rel="noopener">Sign up</a>
