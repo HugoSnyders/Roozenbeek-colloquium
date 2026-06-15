@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roozenbeek Colloquium — How does trust in institutions erode, and what can be done?</title>
+<meta name="description" content="A colloquium with Jon Roozenbeek and Thom Roozenbeek on misinformation, trust, and public health. Tuesday 7 July 2026, Radboud University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:        #9B1B30;
+    --red-dark:   #6E1322;
+    --red-bright: #C5283D;
+    --ink:        #1C1719;
+    --paper:      #FCFAF9;
+    --muted:      #6B6064;
+    --line:       #E7DCD7;
+    --card:       #FFFFFF;
+    --maxw:       760px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: var(--red); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--red-dark); }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Eyebrow label ---------- */
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 18px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 2px;
+    background: var(--red);
+    display: inline-block;
+  }
+
+  /* ---------- Masthead / hero ---------- */
+  .masthead {
+    background: var(--red);
+    color: #fff;
+    padding: 64px 0 56px;
+    border-bottom: 6px solid var(--red-dark);
+  }
+  .masthead .kicker {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.82);
+    margin: 0 0 22px;
+  }
+  .masthead h1 {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.1rem, 6vw, 3.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0;
+    max-width: 16ch;
+  }
+  .masthead h1 em {
+    font-style: italic;
+    color: #FBE3E2;
+  }
+
+  /* ---------- Event meta bar ---------- */
+  .meta {
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+  }
+  .meta-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px 48px;
+    padding: 26px 0;
+  }
+  .meta-item .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  .meta-item .value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+  }
+  .meta-item .value small { display: block; font-weight: 400; color: var(--muted); font-size: 14px; }
+  .meta-cta { margin-left: auto; }
+
+  .btn {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    padding: 14px 30px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .btn:hover { background: var(--red-dark); color: #fff; transform: translateY(-1px); }
+  .btn:focus-visible { outline: 3px solid var(--red-bright); outline-offset: 3px; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 58px 0; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .lede {
+    font-family: "Newsreader", Georgia, serif;
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    line-height: 1.4;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 28px;
+  }
+  .prose p { margin: 0 0 20px; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* ---------- Speakers ---------- */
+  .speaker {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 30px;
+    align-items: start;
+  }
+  .speaker + .speaker { margin-top: 44px; padding-top: 44px; border-top: 1px solid var(--line); }
+  .speaker img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid var(--line);
+    background: #efe9e6;
+  }
+  .speaker h3 {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.45rem;
+    margin: 2px 0 10px;
+    line-height: 1.2;
+  }
+  .speaker h3 a { text-decoration: none; }
+  .speaker h3 a:hover { text-decoration: underline; }
+  .speaker .arrow { font-size: 0.85em; opacity: 0.6; }
+  .speaker p { margin: 0; color: #38302F; }
+
+  /* ---------- Attend / CTA block ---------- */
+  .attend {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px;
+    text-align: center;
+  }
+  .attend h2 {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 500;
+    font-size: 1.7rem;
+    margin: 0 0 8px;
+  }
+  .attend p { margin: 0 0 24px; color: var(--muted); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 44px 0 60px;
+  }
+  .foot-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+  }
+  .contact .label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 8px;
+  }
+  .contact a { display: block; font-weight: 500; }
+
+  /* Logo slot — replace the placeholder box with your <img> (see comment below) */
+  .logo-slot {
+    min-width: 180px;
+    min-height: 70px;
+    border: 1px dashed var(--line);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #B9ADA8;
+    font-size: 13px;
+    text-align: center;
+    padding: 12px;
+  }
+  .logo-slot img { max-height: 70px; max-width: 220px; height: auto; width: auto; }
+
+  /* ---------- Motion ---------- */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .masthead .wrap > * { animation: rise 0.6s ease both; }
+  .masthead .kicker { animation-delay: 0.02s; }
+  .masthead h1 { animation-delay: 0.1s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 620px) {
+    body { font-size: 16px; }
+    .meta-cta { margin-left: 0; width: 100%; }
+    .meta-cta .btn { display: block; text-align: center; }
+    .speaker { grid-template-columns: 1fr; gap: 18px; }
+    .speaker img { width: 120px; height: 120px; }
+    .attend { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="masthead">
+    <div class="wrap">
+      <p class="kicker">Roozenbeek Colloquium</p>
+      <h1>How does trust in institutions erode, <em>and what can be done?</em></h1>
+    </div>
+  </header>
+
+  <!-- ===================== EVENT META ===================== -->
+  <div class="meta">
+    <div class="wrap meta-grid">
+      <div class="meta-item">
+        <p class="label">When</p>
+        <p class="value">Tuesday 7 July 2026<small>11:15 – 12:30</small></p>
+      </div>
+      <div class="meta-item">
+        <p class="label">Where</p>
+        <p class="value">MM 01.620<small>Colloquium room · Radboud University</small></p>
+      </div>
+      <div class="meta-cta">
+        <a class="btn" href="https://hugosnijders.limesurvey.net/184119?lang=en&newtest=Y" target="_blank" rel="noopener">Sign up</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== THE TALK ===================== -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The talk</p>
+      <p class="lede">Since the COVID-19 pandemic, trust in public institutions has steadily eroded, while misinformation has spread rapidly across media and online platforms.</p>
+      <div class="prose">
+        <p>Traditionally, science and governmental health organizations served as central pillars of public health communication and societal trust. Today, however, that foundation appears increasingly fragile.</p>
+        <p>At the same time, many countries are facing troubling public health trends, including declining vaccine uptake and growing skepticism toward scientific and medical expertise. This has sparked an important debate: is misinformation itself the primary driver of these developments, or are deeper societal shifts such as political polarization and declining institutional trust the real underlying causes? These are the questions Thom will take up, addressing the complex relationship between misinformation, trust and public health behaviors, with a focus on vaccine hesitancy.</p>
+        <p>In response to these challenges, researchers have developed and tested a range of interventions aimed at countering misinformation and boosting vaccination uptake. These interventions exist either at the individual level (where individuals are expected to learn something, update their beliefs, or change their behaviour) or at the system level (for example, making changes to the systems we use to communicate information). Jon will review these intervention strategies and how well they work, as well as pathways for improving their effectiveness in real-world settings. He will focus on one particular and novel intervention type: making misinformation and misleading content expensive to produce and spread. Specifically, he will present his latest project on underground manipulation markets, where products such as fake likes, accounts, and comments are readily available for sale.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SPEAKERS ===================== -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The speakers</p>
+
+      <div class="speaker">
+        <img src="Jon_Roozenbeek.png" alt="Portrait of Jon Roozenbeek">
+        <div>
+          <h3><a href="https://www.psychol.cam.ac.uk/staff/jon-roozenbeek" target="_blank" rel="noopener">Jon Roozenbeek <span class="arrow">↗</span></a></h3>
+          <p>Jon Roozenbeek is Director of the Influence and Technology Lab (ITLab), which sits between Cambridge's Department of Psychology and the Department of Communication Science at the Vrije Universiteit Amsterdam. His research focuses on (mis)belief formation, intergroup conflict (particularly in Russia and Ukraine), polarisation, underground manipulation markets, and the use and misuse of modern communication technologies. He holds a PhD in Slavonic Studies (2020), also from the University of Cambridge, for which he studied propaganda and ideology-building in Russian-occupied Donbas (Ukraine).</p>
+        </div>
+      </div>
+
+      <div class="speaker">
+        <img src="Thom_Roozenbeek.jpg" alt="Portrait of Thom Roozenbeek">
+        <div>
+          <h3><a href="https://www.linkedin.com/in/thom-roozenbeek-03349a73/?originalSubdomain=nl" target="_blank" rel="noopener">Thom Roozenbeek <span class="arrow">↗</span></a></h3>
+          <p>Thom Roozenbeek is senior advisor to the board of directors of the National Institute of Public Health in the Netherlands (RIVM). He is doing a part-time PhD at the University of Groningen and the National Institute of Public Health. His research is at the intersection of trust in institutions, misinformation and public health, including vaccine attitudes and behaviors. He holds a bachelor's in applied psychology and a master's degree in public administration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ATTEND ===================== -->
+  <section>
+    <div class="wrap">
+      <div class="attend">
+        <h2>Join us</h2>
+        <p>Free to attend. Please register so we can plan for numbers.</p>
+        <a class="btn" href="https://hugosnijders.limesurvey.net/184119?lang=en&newtest=Y" target="_blank" rel="noopener">Sign up</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="wrap foot-grid">
+      <div class="contact">
+        <p class="label">Contact</p>
+        <a href="mailto:Dan.loughnan@ru.nl">Dan.loughnan@ru.nl</a>
+        <a href="mailto:Hugo.snijders@ru.nl">Hugo.snijders@ru.nl</a>
+      </div>
+
+      <!--
+        UNIVERSITY LOGO:
+        Drop your logo file into the repo (e.g. "logo.png") and replace the
+        placeholder <div> below with:
+            <img src="logo.png" alt="Radboud University">
+      -->
+      <div class="logo-slot">
+        University logo
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
